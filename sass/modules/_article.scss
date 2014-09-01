@@ -1,0 +1,66 @@
+@import "../variable/color";
+@import "../variable/lineHeight";
+@import "../variable/fontSize";
+.article {
+  width: 55%;
+  margin-top: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  &:first-of-type {
+    margin-top: 80px;
+  }
+}
+
+.article-header {
+  text-align: center;
+}
+
+.article-meta {
+  font-size: $fs-articleMeta;
+  color: $c-f-ArticleMeta;
+  margin-top: 10px;
+}
+
+.article-title {
+  color: $c-f-ArticleTitle;
+  font-size: $fs-articleTitle--main;
+  a {
+    color: inherit;
+    border-bottom: none;
+  }
+}
+
+.article-content {
+  margin-top: 35px;
+  font-size: $fs-articleContent;
+  line-height: $lh-articleContent;
+}
+.article-content h4 {
+  margin-top: 30px;
+  font-size: $fs-articleTitle--sub;
+}
+.article-content p {
+  margin-top: 25px;
+}
+.article-content p > img {
+  padding: 10px;
+  display: block;
+  max-width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #aaaaaa;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+}
+
+.article-footer {
+  height: $lh-articleFooter + 1;
+  margin-top: 15px;
+  line-height: $lh-articleFooter;
+  text-align: center;
+}
+
+.article-footer > a {
+  color: $c-f-ArticleFooter;
+  font-size: 12px;
+  display: inline-block;
+}

@@ -1,0 +1,17 @@
+// c = color
+// f = font
+// b = background
+
+
+// ================= global ====================
+$c-f-global: #333333;
+$c-f-blockquote: #aaaaaa;
+
+// ================= base =======================
+$c-f-link: #666666;
+
+// ================= module article ==================
+$c-f-ArticleTitle: #111111;
+$c-f-ArticleContent: $c-f-global;
+$c-f-ArticleFooter: #aaaaaa;
+$c-f-ArticleMeta: $c-f-ArticleFooter;
