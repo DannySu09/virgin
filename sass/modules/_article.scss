@@ -2,10 +2,7 @@
 @import "../variable/lineHeight";
 @import "../variable/fontSize";
 .article {
-  width: 55%;
   margin-top: 220px;
-  margin-left: auto;
-  margin-right: auto;
   &:first-of-type {
     margin-top: 80px;
   }
@@ -24,8 +21,10 @@
 .article-title {
   color: $c-f-ArticleTitle;
   font-size: $fs-articleTitle--main;
+  font-weight: normal;
   a {
     color: inherit;
+//    font-weight: inherit;
     border-bottom: none;
   }
 }
