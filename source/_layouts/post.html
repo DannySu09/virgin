@@ -7,12 +7,7 @@ single: true
 <div class="l-looseContent">
     <article class="article" role="article">
         {% include article.html %}
-        <footer>
-            <p class="meta">
-                {% include post/author.html %}
-                {% include post/date.html %}{{ time }}{% if updated %} {{ updated }}{% endif %}
-                {% include post/categories.html %}
-            </p>
+        <footer class="article-footer">
             {% unless page.sharing == false %}
             {% include post/sharing.html %}
             {% endunless %}

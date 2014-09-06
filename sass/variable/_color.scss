@@ -2,16 +2,29 @@
 // f = font
 // b = background
 
+$c-brighter-grey: #aaaaaa;
+$c-bright-grey: #666666;
+$c-grey: #333333;
+$c-dark-grey: #111111;
 
 // ================= global ====================
-$c-f-global: #333333;
-$c-f-blockquote: #aaaaaa;
+$c-f-global: $c-grey;
+$c-f-blockquote: $c-brighter-grey;
 
 // ================= base =======================
-$c-f-link: #666666;
+$c-f-link: $c-bright-grey;
 
 // ================= module article ==================
-$c-f-ArticleTitle: #111111;
-$c-f-ArticleContent: $c-f-global;
-$c-f-ArticleFooter: #aaaaaa;
-$c-f-ArticleMeta: $c-f-ArticleFooter;
+$c-f-articleTitle: $c-dark-grey;
+$c-f-articleContent: $c-grey;
+$c-f-articleFooter: $c-brighter-grey;
+$c-f-articleMeta: $c-bright-grey;
+$c-hr: $c-brighter-grey;
+
+// ================= module archive ====================
+$c-f-archiveYear: $c-dark-grey;
+$c-f-archiveTitle: $c-grey;
+$c-f-archiveBorderLeft: $c-grey;
+
+// ================ module navigation ===================
+$c-f-navigation-item: $c-dark-grey;

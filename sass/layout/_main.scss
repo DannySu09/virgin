@@ -1,15 +1,3 @@
-@import "../variable/dimension";
-@import "../variable/fontSize";
+@import "navigation";
+@import "mainContent";
 
-// content layout
-.l-looseContent {
-  width: $w-articleWidth--768px;
-  margin-left: auto;
-  margin-right: auto;
-  @media (min-width: 320px) and (max-width: 768px) {
-    width: $w-articleWidth--320px-768px;
-    .article-title {
-      font-size: $fs-articleTitle--main-mobile;
-    }
-  }
-}

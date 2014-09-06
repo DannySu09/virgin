@@ -1,0 +1,52 @@
+@import "../variable/color";
+
+.archive {
+  margin-top: 60px;
+  &:first-of-type {
+    margin-top: 30;
+  }
+}
+
+.archive-item {
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid transparent;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  -ms-transition: all .1s;
+  -o-transition: all .1s;
+  transition: all .1s;
+  &:hover {
+    border-color: $c-f-archiveBorderLeft;
+  }
+}
+.archive-itemTitle {
+  font-weight: 500;
+  color: $c-f-archiveTitle;
+  & a {
+    color: inherit;
+  }
+}
+
+.archive-year {
+  font-size: $fs-archiveYear;
+  font-weight: 500;
+  color: $c-f-archiveTitle;
+  padding-left: 10px;
+  & > a {
+    color: inherit;
+  }
+}
+
+// get around with the origin template structure
+#blog-archives {
+  @extend .archive;
+}
+
+#blog-archives > h2 {
+  @extend .archive-year;
+}
+
+#blog-archives > article {
+  @extend .archive-item;
+}

@@ -1,0 +1,87 @@
+@import "../variable/fontSize";
+@import "../variable/color";
+
+// todo: where is the mobile nav template?
+.mobile-nav {
+  display: none;
+}
+
+$height: 30px;
+.navigation {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.navigation-menu {
+  float: left;
+  a {
+    float: left;
+    height: $height;
+    line-height: $height - 1;
+    color: $c-f-navigation-item;
+    margin-right: 20px;
+    font-size: $fs-navigation-icon;
+    i {
+      vertical-align: middle;
+    }
+  }
+}
+
+.navigation-searchField {
+  float: right;
+}
+.navigation-searchField {
+  & button, & input {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    vertical-align: top;
+    height: $height;
+  }
+}
+.navigation-searchField-submit {
+  width: $height;
+  border-radius: $height/2;
+  border: 1px solid $c-f-navigation-item;
+  background-color: transparent;
+  cursor: pointer;
+}
+.navigation-searchField-search {
+  width: 0;
+  padding: 0;
+  border: none;
+  visibility: hidden;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  line-height: $height - 1;
+  -webkit-transition: all .4s;
+  -moz-transition: all .4s;
+  -ms-transition: all .4s;
+  -o-transition: all .4s;
+  transition: all .4s;
+  @include phone-and-pad {
+    & {
+      width: 10em;
+      padding: 5px 10px;
+      visibility: visible;
+      border: 1px solid $c-f-navigation-item;
+    }
+  }
+}
+
+.navigation-searchField:hover {
+  .navigation-searchField-submit {
+    color: #ffffff;
+    background-color: $c-f-navigation-item;
+  }
+  @include pc {
+    .navigation-searchField-search {
+      width: 14em;
+      padding: 5px 10px;
+      visibility: visible;
+      border: 1px solid $c-f-navigation-item;
+    }
+  }
+}

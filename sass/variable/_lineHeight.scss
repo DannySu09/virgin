@@ -1,6 +1,7 @@
 @import "fontSize";
 // lh = line height
 
-$lh-articleContent: $fs-articleContent * 1.8;
-
+// ============ module article ==========
+$lh-articleContent: $fs-articleContent * 1.9;
+$lh-articleContent--mobile: $fs-articleContent--mobile * 1.8;
 $lh-articleFooter: 24px;

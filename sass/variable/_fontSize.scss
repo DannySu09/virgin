@@ -1,16 +1,34 @@
 // fs = font-size
+$fs-hugest: 35px;
+$fs-huger: 32px;
+$fs-huge: 30px;
+$fs-larger: 25px;
+$fs-large: 20px;
+$fs-middle: 18px;
+$fs-small: 15px;
+$fs-smaller: 12px;
 
-$fs-globalTitle: 35px;
-$fs-global: 14px;
+// =============== global content =================
+$fs-globalTitle: $fs-hugest;
+$fs-global: $fs-small;
 
 // ================ module article ==================
-$fs-articleTitle--main: 30px;
-$fs-articleTitle--main-mobile: 25px;
-$fs-articleTitle--sub: 20px;
-$fs-articleTitle--subUnderSub: 19px;
+$fs-articleTitle--main: $fs-huge;
+$fs-articleTitle--main-mobile: $fs-larger;
+$fs-articleTitle--sub: $fs-large;
+$fs-articleTitle--subUnderSub: $fs-middle;
 
-$fs-articleContent: 18px;
+$fs-articleContent: $fs-middle;
+$fs-articleContent--mobile: $fs-middle;
 
-$fs-articleMeta: 13px;
+$fs-articleMeta: $fs-small;
 
-$fs-articleFooter: 12px;
+$fs-articleFooter: $fs-smaller;
+
+// ================= module archive -=================
+$fs-archiveYear: $fs-larger;
+
+
+// ================= module navigation ==================
+$fs-navigation-icon: $fs-large;
+$fs-navigation-item: $fs-middle;

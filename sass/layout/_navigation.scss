@@ -1,0 +1,12 @@
+@import "../_mixin/media";
+.l-nav {
+  padding: 40px 20% 0;
+  @include phone-and-pad {
+    padding: 10px 15px;
+  }
+  &.is-fixed {
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
