@@ -19,13 +19,18 @@ $height: 30px;
   float: left;
   a {
     float: left;
+    cursor: pointer;
     height: $height;
     line-height: $height - 1;
     color: $c-f-navigation-item;
     margin-right: 20px;
     font-size: $fs-navigation-icon;
+    @include phone-and-pad {
+      font-size: $fs-navigation-icon--mobile;
+      margin-right: 15px;
+    }
     i {
-      vertical-align: middle;
+      vertical-align: bottom;
     }
   }
 }

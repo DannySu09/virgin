@@ -38,6 +38,13 @@
   }
 }
 
+.archive-info {
+  color: $c-f-archiveInfo;
+  a, a:visited {
+    color: inherit;
+  }
+}
+
 // get around with the origin template structure
 #blog-archives {
   @extend .archive;

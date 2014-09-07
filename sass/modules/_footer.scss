@@ -1,0 +1,22 @@
+@import "../variable/fontSize";
+@import "../variable/color";
+@import "../_mixin/media";
+.footer {
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+@include phone-and-pad {
+  .footer-pcVersion {
+    display: none;
+  }
+}
+@include pc {
+  .footer-portableVersion {}
+  display: none;
+}
+.footer > small {
+  font-size: $fs-footer;
+  color: $c-f-footer;
+}
