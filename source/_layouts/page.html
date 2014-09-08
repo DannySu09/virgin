@@ -2,15 +2,7 @@
 layout: default
 ---
 
-{% unless page.sidebar == false %}
-<aside class="l-sidebar sidebar js-sidebar">
-    {% if site.page_asides.size %}
-    {% include_array page_asides %}
-    {% else %}
-    {% include_array default_asides %}
-    {% endif %}
-</aside>
-{% endunless %}
+
 <div>
         <div class="l-looseContent">
             <article class="article" role="article">

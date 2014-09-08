@@ -1,6 +1,4 @@
 .l-main {
-  width: 100%;
-  z-index: 0;
   background-color: #ffffff;
   -webkit-transition: all .6s;
   -moz-transition: all .6s;
@@ -10,5 +8,9 @@
 }
 
 .l-main.is-showSideBar {
-  margin-left: 350px;
+  transform: translate3d(350px, 0, 0);
+  -o-transform: translate3d(350px, 0, 0);
+  -ms-transform: translate3d(350px, 0, 0);
+  -moz-transform: translate3d(350px, 0, 0);
+  -webkit-transform: translate3d(350px, 0, 0);
 }
