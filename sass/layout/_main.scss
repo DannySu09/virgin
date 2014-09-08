@@ -1,3 +1,14 @@
-@import "navigation";
-@import "mainContent";
+.l-main {
+  width: 100%;
+  z-index: 0;
+  background-color: #ffffff;
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  -ms-transition: all .6s;
+  -o-transition: all .6s;
+  transition: all .6s;
+}
 
+.l-main.is-showSideBar {
+  margin-left: 350px;
+}

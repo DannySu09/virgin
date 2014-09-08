@@ -3,33 +3,41 @@
 // b = background
 $c-meizuBlue: #00a8e7;
 
-$c-brighter-grey: #aaaaaa;
-$c-bright-grey: #666666;
-$c-grey: #333333;
-$c-dark-grey: #111111;
+$c-brightest: #eeeeee;
+$c-brighter: #aaaaaa;
+$c-bright: #666666;
+$c-middle: #333333;
+$c-dark: #111111;
+
+// the color of reading content
+$c-readingContent: #333333;
 
 // ================= global ====================
-$c-f-global: $c-grey;
-$c-f-blockquote: $c-brighter-grey;
+$c-f-global: $c-middle;
+$c-f-blockquote: $c-brighter;
 
 // ================= base =======================
 $c-f-link: $c-meizuBlue;
 
 // ================= module article ==================
-$c-f-articleTitle: $c-dark-grey;
-$c-f-articleContent: $c-grey;
-$c-f-articleFooter: $c-brighter-grey;
-$c-f-articleMeta: $c-bright-grey;
-$c-hr: $c-brighter-grey;
+$c-f-articleTitle: $c-dark;
+$c-f-articleContent: $c-readingContent;
+$c-f-articleFooter: $c-brighter;
+$c-f-articleMeta: $c-bright;
+$c-hr: $c-brighter;
 
 // ================= module archive ====================
-$c-f-archiveYear: $c-dark-grey;
-$c-f-archiveTitle: $c-grey;
-$c-f-archiveInfo: $c-bright-grey;
-$c-f-archiveBorderLeft: $c-grey;
+$c-f-archiveYear: $c-dark;
+$c-f-archiveTitle: $c-middle;
+$c-f-archiveInfo: $c-bright;
+$c-f-archiveBorderLeft: $c-middle;
 
 // ================ module navigation ===================
-$c-f-navigation-item: $c-dark-grey;
+$c-f-navigation-item: $c-dark;
+
+// ================ module sidebar ==================
+$c-b-sidebar: $c-brightest;
+$c-f-sidebar: $c-dark;
 
 // ================ module footer ===================
-$c-f-footer: $c-brighter-grey;
+$c-f-footer: $c-brighter;

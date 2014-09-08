@@ -1,0 +1,26 @@
+@import "../variable/color";
+@import "../variable/fontSize";
+
+.sidebar {
+  height: 100%;
+  width: 350px;
+  color: $c-f-sidebar;
+  font-size: $fs-sidebar;
+  background-color: $c-b-sidebar;
+  box-shadow: -1px 0 3px 1px rgba(0,0,0,0.2) inset;
+  -webkit-box-shadow: -1px 0 3px 1px rgba(0,0,0,0.2) inset;
+  h3 {
+    font-weight: normal;
+  }
+  a, a:visited {
+    color: inherit;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}
