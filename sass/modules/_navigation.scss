@@ -68,7 +68,7 @@ $height: 30px;
   transition: all .4s;
   @include phone-and-pad {
     & {
-      width: 10em;
+      width: 8em;
       padding: 5px 10px;
       visibility: visible;
       border: 1px solid $c-f-navigation-item;
