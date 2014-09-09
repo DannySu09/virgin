@@ -2,7 +2,14 @@
     var sideBarCover = document.getElementsByClassName('js-sideBarCover')[0];
     var menuBtn = document.getElementsByClassName('js-showSideBar')[0];
     var sidebar = document.getElementsByClassName('js-sidebar')[0];
-    var actionClass = 'is-showSideBar';
+    var detect3D = function(){
+        if( !! (window.WebKitCSSMatrix && 'm11' in new WebKitCSSMatrix())) {
+            return true
+        }
+        return false;
+
+    };
+    var actionClass = detect3D() ? 'is-showSideBar' : 'is-showSideBar--oldAndroid';
     var transitionHandler = function(){
         sidebar.style.zIndex = 1;
         sideBarCover.removeEventListener('transitionend', transitionHandler);

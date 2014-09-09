@@ -24,3 +24,11 @@
     -webkit-transform: translate3d($w-sidebar--mobile, 0, 0);
   }
 }
+.l-main.is-showSideBar--oldAndroid {
+  transform: translateX($w-sidebar);
+  -webkit-transform: translateX($w-sidebar);
+  @include phone-and-pad {
+    transform: translateX($w-sidebar--mobile);
+    -webkit-transform: translateX($w-sidebar--mobile);
+  }
+}
