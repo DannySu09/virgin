@@ -2,7 +2,13 @@
 
 // w = width
 // h = height
+
+// ========== media ===========
 // wider than 768px
 $w-articleWidth--768px: 55%;
 // between 320 and 768px
 $w-articleWidth--320px-768px: 90%;
+
+// ============= sidebar ==============
+$w-sidebar: 350px;
+$w-sidebar--mobile: 260px;

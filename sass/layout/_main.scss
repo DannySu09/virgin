@@ -1,3 +1,6 @@
+@import "../variable/dimension";
+@import "../_mixin/media";
+
 .l-main {
   background-color: #ffffff;
   -webkit-transition: all .6s;
@@ -8,9 +11,16 @@
 }
 
 .l-main.is-showSideBar {
-  transform: translate3d(350px, 0, 0);
-  -o-transform: translate3d(350px, 0, 0);
-  -ms-transform: translate3d(350px, 0, 0);
-  -moz-transform: translate3d(350px, 0, 0);
-  -webkit-transform: translate3d(350px, 0, 0);
+  transform: translate3d($w-sidebar, 0, 0);
+  -o-transform: translate3d($w-sidebar, 0, 0);
+  -ms-transform: translate3d($w-sidebar, 0, 0);
+  -moz-transform: translate3d($w-sidebar, 0, 0);
+  -webkit-transform: translate3d($w-sidebar, 0, 0);
+  @include phone-and-pad {
+    transform: translate3d($w-sidebar--mobile, 0, 0);
+    -o-transform: translate3d($w-sidebar--mobile, 0, 0);
+    -ms-transform: translate3d($w-sidebar--mobile, 0, 0);
+    -moz-transform: translate3d($w-sidebar--mobile, 0, 0);
+    -webkit-transform: translate3d($w-sidebar--mobile, 0, 0);
+  }
 }

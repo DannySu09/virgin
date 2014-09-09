@@ -1,14 +1,20 @@
 @import "../variable/color";
 @import "../variable/fontSize";
+@import "../variable/dimension";
+@import "../_mixin/media";
 
 .sidebar {
   height: 100%;
-  width: 350px;
+  width: $w-sidebar;
   color: $c-f-sidebar;
   font-size: $fs-sidebar;
   background-color: $c-b-sidebar;
   box-shadow: -1px 0 3px 1px rgba(0,0,0,0.2) inset;
   -webkit-box-shadow: -1px 0 3px 1px rgba(0,0,0,0.2) inset;
+  @include phone-and-pad {
+    width: $w-sidebar--mobile;
+    font-size: $fs-sidebar--mobile;
+  }
   h3 {
     font-weight: normal;
   }
