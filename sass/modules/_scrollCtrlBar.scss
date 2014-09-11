@@ -1,0 +1,22 @@
+@import "../variable/color";
+@import "../_mixin/media";
+
+.scrollCtrlBar-item {
+  display: block;
+  text-align: center;
+  background-color: $c-b-scrollCtrlBar;
+  color: $c-f-scrollCtrlBar;
+  line-height: 39px;
+  font-size: 20px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+  &:hover {
+    color: #ffffff;
+    background-color: $c-b-scrollCtrlBar--hover;
+  }
+}

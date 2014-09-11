@@ -1,0 +1,25 @@
+@import "../_mixin/media";
+
+
+.l-scrollCtrlBar {
+  top: 50%;
+  right: 50px;
+  width: 45px;
+  height: 45px;
+  position: fixed;
+  margin-top: -45px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .7s;
+  -moz-transition: opacity  .7s;
+  -ms-transition: opacity  .7s;
+  -o-transition: opacity  .7s;
+  transition: opacity  .7s;
+  &.is-show {
+    opacity: 1;
+    visibility: visible;
+  }
+  @include phone-and-pad {
+    display: none;
+  }
+}
