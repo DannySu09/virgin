@@ -1,3 +1,7 @@
+@import "../_mixin/media";
 .l-comment {
-  margin-top: 50px;
+  margin-top: 200px;
+  @include phone-and-pad {
+    margin-top: 60px;
+  }
 }

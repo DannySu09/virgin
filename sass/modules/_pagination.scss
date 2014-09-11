@@ -1,0 +1,69 @@
+@import "../_mixin/media";
+@import "../variable/color";
+@import "../variable/fontSize";
+@import "../_mixin/media";
+
+.pagination-item {
+  width: 50%;
+  position: relative;
+  padding: 15px 25px;
+  text-align: center;
+  vertical-align: top;
+  color: $c-f-pagination !important;
+  font-size: $fs-pagination;
+  display: inline-block;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-transition: border-color .1s;
+  -moz-transition: border-color .1s;
+  -ms-transition: border-color .1s;
+  -o-transition: border-color .1s;
+  transition: border-color .1s;
+  &:hover {
+    border: 1px solid $c-pagination-border;
+    color: $c-f-pagination--hover !important;
+  }
+  @include phone-and-pad {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    background-color: $c-b-pagination--mobile;
+  }
+}
+
+.pagination .fa {
+  position: absolute;
+  top: 50%;
+  font-size: $fs-pagination-arrow;
+  margin-top: $fs-pagination-arrow / 2 * (-1);
+  @include phone-and-pad {
+    font-size: $fs-pagination-arrow--mobile;
+    margin-top: $fs-pagination-arrow--mobile / 2 * (-1);
+    color: $c-f-pagination-arrow--mobile;
+  }
+}
+
+@include phone-and-pad {
+  .pagination-prev {
+    padding-left: 25px + $fs-pagination-arrow--mobile*1.5;
+    padding-right: 10px;
+  }
+  .pagination-next {
+    padding-left: 10px;
+    padding-right: 25px + $fs-pagination-arrow--mobile*1.5;
+  }
+}
+
+.pagination-prev .fa {
+  left: $fs-pagination-arrow * (-1.3);
+  @include phone-and-pad {
+    left: $fs-pagination-arrow--mobile;
+  }
+}
+.pagination-next .fa {
+  right: $fs-pagination-arrow * (-1.3);
+  @include phone-and-pad {
+    right: $fs-pagination-arrow--mobile;
+  }
+}
