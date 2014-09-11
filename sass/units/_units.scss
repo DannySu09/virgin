@@ -1,0 +1,7 @@
+// units style scattered on the document
+
+.clearFloat:after {
+  content: '';
+  display: block;
+  clear: both;
+}

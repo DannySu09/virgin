@@ -11,7 +11,6 @@
   vertical-align: top;
   color: $c-f-pagination !important;
   font-size: $fs-pagination;
-  display: inline-block;
   border: 1px solid transparent;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -26,9 +25,23 @@
   }
   @include phone-and-pad {
     width: 100%;
-    display: block;
     margin-top: 10px;
     background-color: $c-b-pagination--mobile;
+  }
+}
+
+.pagination-prev {
+  float: left;
+  @include phone-and-pad {
+    padding-left: 25px + $fs-pagination-arrow--mobile*1.5;
+    padding-right: 10px;
+  }
+}
+.pagination-next {
+  float: right;
+  @include phone-and-pad {
+    padding-left: 10px;
+    padding-right: 25px + $fs-pagination-arrow--mobile*1.5;
   }
 }
 
@@ -41,17 +54,6 @@
     font-size: $fs-pagination-arrow--mobile;
     margin-top: $fs-pagination-arrow--mobile / 2 * (-1);
     color: $c-f-pagination-arrow--mobile;
-  }
-}
-
-@include phone-and-pad {
-  .pagination-prev {
-    padding-left: 25px + $fs-pagination-arrow--mobile*1.5;
-    padding-right: 10px;
-  }
-  .pagination-next {
-    padding-left: 10px;
-    padding-right: 25px + $fs-pagination-arrow--mobile*1.5;
   }
 }
 
