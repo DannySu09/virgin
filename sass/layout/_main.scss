@@ -2,6 +2,7 @@
 @import "../_mixin/media";
 
 .l-main {
+  width: 100%;
   background-color: #ffffff;
   -webkit-transition: all .6s;
   -moz-transition: all .6s;
@@ -25,10 +26,8 @@
   }
 }
 .l-main.is-showSideBar--old {
-  transform: translateX($w-sidebar);
-  -webkit-transform: translateX($w-sidebar);
+  margin-left: $w-sidebar;
   @include phone-and-pad {
-    transform: translateX($w-sidebar--mobile);
-    -webkit-transform: translateX($w-sidebar--mobile);
+    margin-left: $w-sidebar--mobile;
   }
 }

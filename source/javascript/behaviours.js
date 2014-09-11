@@ -24,12 +24,13 @@
     };
     menuBtn.addEventListener('click', function(e){
         e.preventDefault();
-        var coverClassList = sideBarCover.classList;
-        if(coverClassList.contains(actionClass)) {
-            coverClassList.remove(actionClass);
+        var className = sideBarCover.className;
+        var index = className.indexOf(actionClass);
+        if(index > -1) {
+            sideBarCover.className = className.slice(0, index) + className.slice(index+actionClass.length);
             sidebar.style.zIndex = -1;
-        } else {
-            coverClassList.add(actionClass);
+        } else if(index <= -1) {
+            sideBarCover.className += (' '+actionClass);
             sideBarCover.addEventListener(transitionEvt, transitionHandler);
         }
     });
