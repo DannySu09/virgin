@@ -89,7 +89,7 @@
     toTopBtn.addEventListener('click', function(e){
         e.preventDefault();
         var rafId;
-        var speed = 60;
+        var speed = 80;
         function toTop (){
             var scrollY = window.scrollY;
             rafId && cancelRaf(rafId);
