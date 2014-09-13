@@ -15,15 +15,18 @@ $fs-global: $fs-small;
 // ================ module article ==================
 $fs-articleTitle--main: $fs-huge;
 $fs-articleTitle--main-mobile: $fs-larger;
-$fs-articleTitle--sub: $fs-large;
-$fs-articleTitle--subUnderSub: $fs-middle;
-
-$fs-articleContent: $fs-middle;
-$fs-articleContent--mobile: $fs-middle;
 
 $fs-articleMeta: $fs-small;
 
 $fs-articleFooter: $fs-smaller;
+
+// ================= module essay ====================
+
+$fs-essayContent: $fs-middle;
+$fs-essayContent--mobile: $fs-middle;
+$fs-essayBlockQuote: $fs-small;
+$fs-essayCode: $fs-small;
+$fs-essayPre: $fs-small;
 
 // ================= module archive -=================
 $fs-archiveYear: $fs-larger;

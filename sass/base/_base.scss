@@ -27,25 +27,6 @@ h6 {
   margin-bottom: 0;
 }
 
-h1 {
-  font-size: 1.8em;
-}
-h2 {
-  font-size: 1.5em;
-}
-h3 {
-  font-size: 1.4em;
-}
-h4 {
-  font-size: 1.3em;
-}
-h5 {
-  font-size: 1.2em;
-}
-h6 {
-  font-size: 1.1em;
-}
-
 p {
   margin-top: 0;
   margin-bottom: 0;
@@ -62,10 +43,4 @@ a {
   &:visited {
     color: $c-f-link;
   }
-}
-
-blockquote {
-  margin: $fs-global;
-  padding-left: 10px;
-  border-left: 4px solid $c-f-blockquote;
 }

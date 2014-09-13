@@ -14,7 +14,6 @@ $c-readingContent: #333333;
 
 // ================= global ====================
 $c-f-global: $c-middle;
-$c-f-blockquote: $c-brighter;
 
 // ================= base =======================
 $c-f-link: $c-meizuBlue;
@@ -25,6 +24,11 @@ $c-f-articleContent: $c-readingContent;
 $c-f-articleFooter: $c-brighter;
 $c-f-articleMeta: $c-bright;
 $c-hr: $c-brighter;
+
+// ================ module essay ====================
+$c-border-essayBlockquote: $c-brightest;
+$c-border-essayCode: $c-brighter;
+$c-b-essayCode: $c-bright;
 
 // ================= module archive ====================
 $c-f-archiveYear: $c-dark;

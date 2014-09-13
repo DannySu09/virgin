@@ -2,6 +2,9 @@
 // lh = line height
 
 // ============ module article ==========
-$lh-articleContent: $fs-articleContent * 1.9;
-$lh-articleContent--mobile: $fs-articleContent--mobile * 1.8;
 $lh-articleFooter: 24px;
+
+// ============= module essay =============
+$lh-essayContent: $fs-essayContent * 1.8;
+$lh-essayContent--mobile: $fs-essayContent--mobile * 1.7;
+$lh-essayBlockquote: $fs-essayBlockQuote * 1.6;
