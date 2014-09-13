@@ -40,6 +40,8 @@ $fs-essayTitle--main: $fs-articleTitle--main;
     max-width: 100%;
     overflow: auto;
     font-size: $fs-essayPre;
+    background-color: #ffffff;
+    border: 1px solid $c-border-essayPre;
   }
   img {
     display: block;
