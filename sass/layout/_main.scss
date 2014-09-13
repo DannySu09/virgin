@@ -3,6 +3,8 @@
 
 .l-main {
   width: 100%;
+  //  fix zIndex mess
+  position: relative;
   background-color: #ffffff;
   -webkit-transition: all .6s;
   -moz-transition: all .6s;
