@@ -3,10 +3,8 @@
 
 .l-main {
   width: 100%;
-  min-height: 100%;
-  //  fix zIndex mess
-  position: relative;
-  background-color: #ffffff;
+  height: 100%;
+  overflow: auto;
   -webkit-transition: all .6s;
   -moz-transition: all .6s;
   -ms-transition: all .6s;
@@ -14,9 +12,16 @@
   transition: all .6s;
 }
 
+.l-main-content {
+  min-height: 100%;
+  background-color: #ffffff;
+  //  fix zIndex mess
+  position: relative;
+}
+
 .l-main.is-showSideBar {
-  height: 100%;
   overflow-y: hidden;
+  min-height: 100%;
   transform: translate3d($w-sidebar, 0, 0);
   -o-transform: translate3d($w-sidebar, 0, 0);
   -ms-transform: translate3d($w-sidebar, 0, 0);

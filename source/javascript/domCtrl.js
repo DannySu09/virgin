@@ -1,5 +1,7 @@
 (function(doc){
+    var body = doc.getElementsByTagName('body')[0];
     var sideBarCover = doc.getElementsByClassName('js-sideBarCover')[0];
+    var mainContent = sideBarCover.getElementsByClassName('js-main-content')[0];
     var menuBtn = doc.getElementsByClassName('js-showSideBar')[0];
     var sidebar = doc.getElementsByClassName('js-sidebar')[0];
     var actionClass = Modernizr.csstransforms3d ? ' is-showSideBar' : ' is-showSideBar--old';
@@ -70,9 +72,9 @@
         }
     });
 
-    window.addEventListener('scroll', function(){
-        var bodyHeight = doc.getElementsByTagName('body')[0].clientHeight;
-        if(window.scrollY >= bodyHeight*2/7) {
+    sideBarCover.addEventListener('scroll', function(){
+        var bodyHeight = mainContent.clientHeight;
+        if(sideBarCover.scrollTop >= bodyHeight*2/7) {
             if(scrollCtrl.className.indexOf(' is-show') > -1){
                 return;
             }
@@ -87,19 +89,20 @@
         }
     });
 
+
     toTopBtn.addEventListener('click', function(e){
         e.preventDefault();
         var rafId;
         var speed = 110;
         function toTop (){
-            var scrollY = window.scrollY;
+            var scrollY = sideBarCover.scrollTop;
             rafId && cancelRaf(rafId);
             scrollY -= speed;
             if(scrollY <=0 ) {
-                window.scrollTo(0,0);
+                sideBarCover.scrollTop = 0;
                 return;
             }
-            window.scrollTo(0, scrollY);
+            sideBarCover.scrollTop = scrollY;
             rafId = raf(toTop);
         }
         toTop();
