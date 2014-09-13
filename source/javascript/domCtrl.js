@@ -64,6 +64,7 @@
             sideBarCover.className = className.slice(0, index) + className.slice(index+actionClass.length);
             sidebar.style.zIndex = -1;
         } else if(index <= -1) {
+            sidebar.scrollTop = 0;
             sideBarCover.className += actionClass;
             sideBarCover.addEventListener(transitionEvt, transitionHandler);
         }
