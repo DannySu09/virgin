@@ -9,8 +9,9 @@
   color: $c-f-sidebar;
   font-size: $fs-sidebar;
   background-color: $c-b-sidebar;
-  box-shadow: -1px 0 3px 1px rgba(0,0,0,0.2) inset;
-  -webkit-box-shadow: -1px 0 3px 1px rgba(0,0,0,0.2) inset;
+  box-shadow: -1px 0 3px 1px rgba(0,0,0,0.5) inset;
+  -webkit-box-shadow: -1px 0 3px 1px rgba(0,0,0,0.5) inset;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.6);
   @include phone-and-pad {
     width: $w-sidebar--mobile;
     font-size: $fs-sidebar--mobile;
