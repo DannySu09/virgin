@@ -1,5 +1,7 @@
-{% if page.date %}{% capture time %}{{ page.date_time_html }}{% endcapture %}{% endif %}
-{% if post.date %}{% capture time %}{{ post.date_time_html }}{% endcapture %}{% endif %}
 
-{% if page.updated %}{% capture updated %}{{ page.date_time_updated_html }}{% endcapture %}{% endif %}
-{% if post.updated %}{% capture updated %}{{ post.date_time_updated_html }}{% endcapture %}{% endif %}
+    {% if page.date %}{% capture time %}<div class="article-meta-item"><i class="fa fa-clock-o"></i>{{ page.date_time_html }}</div>{% endcapture %}{% endif %}
+    {% if post.date %}{% capture time %}<div class="article-meta-item"><i class="fa fa-clock-o"></i>{{ post.date_time_html }}</div>{% endcapture %}{% endif %}
+
+
+    {% if page.updated %}{% capture updated %}<div class="article-meta-item"><i class="fa fa-clock-o"></i>{{ page.date_time_updated_html }}</div>{% endcapture %}{% endif %}
+    {% if post.updated %}{% capture updated %}<div class="article-meta-item"><i class="fa fa-clock-o"></i>{{ post.date_time_updated_html }}</div>{% endcapture %}{% endif %}

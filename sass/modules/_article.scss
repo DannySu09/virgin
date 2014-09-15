@@ -25,6 +25,17 @@
   margin-top: 10px;
 }
 
+.article-meta-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.article-meta-item a {
+  color: $c-f-articleMeta;
+}
+.article-meta-item .fa {
+  margin-right: 3px;
+}
+
 .article-title {
   color: $c-f-articleTitle;
   font-size: $fs-articleTitle--main;
