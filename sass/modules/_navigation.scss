@@ -61,6 +61,7 @@ $height: 30px;
   border-radius: 2px;
   border: 1px solid transparent;
   line-height: $height - 1;
+  padding: 5px 10px;
   -webkit-transition: all .4s;
   -moz-transition: all .4s;
   -ms-transition: all .4s;
@@ -69,7 +70,6 @@ $height: 30px;
   @include phone-and-pad {
     & {
       width: 8em;
-      padding: 5px 10px;
       visibility: visible;
       border: 1px solid $c-f-navigation-item;
     }
@@ -84,9 +84,16 @@ $height: 30px;
   @include pc {
     .navigation-searchField-search {
       width: 14em;
-      padding: 5px 10px;
       visibility: visible;
       border: 1px solid $c-f-navigation-item;
     }
+  }
+}
+
+@include pc {
+  .navigation-searchField-search:focus {
+    width: 14em !important;
+    visibility: visible !important;
+    border: 1px solid $c-f-navigation-item !important;
   }
 }
