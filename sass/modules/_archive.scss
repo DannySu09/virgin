@@ -40,6 +40,8 @@
 
 .archive-info {
   color: $c-f-archiveInfo;
+  font-family: "georgia";
+  font-size: $fs-archiveInfo;
   a, a:visited {
     color: inherit;
   }

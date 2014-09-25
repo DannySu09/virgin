@@ -1,5 +1,5 @@
 {% capture category %}{{ post.categories | size }}{% endcapture %}
-<h3 class="archive-itemTitle"><a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a></h3>
+<h2 class="archive-itemTitle"><a href="{{ root_url }}{{ post.url }}">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a></h2>
 <div class="archive-info">
     <div><time datetime="{{ post.date | datetime | date_to_xmlschema }}" pubdate>{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</time></div>
     {% if category != '0' %}
