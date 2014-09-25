@@ -24,34 +24,6 @@
         }
     })();
 
-//    var raf = (function(){
-//        var prefixed = window.requestAnimationFrame       ||
-//            window.webkitRequestAnimationFrame ||
-//            window.mozRequestAnimationFrame    ||
-//            window.oRequestAnimationFrame      ||
-//            window.msRequestAnimationFrame     ||
-//            function( callback ){
-//                window.setTimeout(callback, 1000 / 60);
-//            };
-//        return function(){
-//            var id = prefixed.apply(window, arguments);
-//            return id;
-//        }
-//    })();
-//
-//    var cancelRaf = (function() {
-//        var prefixed = window.cancelAnimationFrame ||
-//            window.webkitCancelRequestAnimationFrame ||
-//            window.mozCancelRequestAnimationFrame ||
-//            window.oCancelRequestAnimationFrame ||
-//            window.msCancelRequestAnimationFrame ||
-//            function (id) {
-//                clearTimeout(id);
-//            };
-//        return function (id) {
-//            prefixed.apply(window, arguments);
-//        };
-//    })();
     var transitionHandler = function(){
         sidebar.style.zIndex = 1;
         sideBarCover.removeEventListener(transitionEvt, transitionHandler);
@@ -151,20 +123,6 @@
     toTopBtn.addEventListener('click', function(e){
         e.preventDefault();
         scroll2Top(sideBarCover, 200, 'ease-in');
-//        var rafId;
-//        var speed = 110;
-//        function toTop (){
-//            var scrollY = sideBarCover.scrollTop;
-//            rafId && cancelRaf(rafId);
-//            scrollY -= speed;
-//            if(scrollY <=0 ) {
-//                sideBarCover.scrollTop = 0;
-//                return;
-//            }
-//            sideBarCover.scrollTop = scrollY;
-//            rafId = raf(toTop);
-//        }
-//        toTop();
     });
 
 })(document);
