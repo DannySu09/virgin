@@ -1,6 +1,5 @@
 @import "../variable/color";
 @import "../variable/fontSize";
-@import "fontFace";
 html {
   height: 100%;
   overflow-x: hidden;
@@ -13,7 +12,7 @@ body {
   overflow-x: hidden;
   color: $c-f-global;
   background-color: #ffffff;
-  font: 500 $fs-global/#{1.5} "Electrolize", "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+  font: 500 $fs-global/#{1.5} "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
