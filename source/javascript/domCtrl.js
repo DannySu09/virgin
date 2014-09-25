@@ -1,4 +1,4 @@
-(function(doc){
+;(function(doc){
     var body = doc.getElementsByTagName('body')[0];
     var sideBarCover = doc.getElementsByClassName('js-sideBarCover')[0];
     var mainContent = sideBarCover.getElementsByClassName('js-main-content')[0];
@@ -24,34 +24,34 @@
         }
     })();
 
-    var raf = (function(){
-        var prefixed = window.requestAnimationFrame       ||
-            window.webkitRequestAnimationFrame ||
-            window.mozRequestAnimationFrame    ||
-            window.oRequestAnimationFrame      ||
-            window.msRequestAnimationFrame     ||
-            function( callback ){
-                window.setTimeout(callback, 1000 / 60);
-            };
-        return function(){
-            var id = prefixed.apply(window, arguments);
-            return id;
-        }
-    })();
-
-    var cancelRaf = (function() {
-        var prefixed = window.cancelAnimationFrame ||
-            window.webkitCancelRequestAnimationFrame ||
-            window.mozCancelRequestAnimationFrame ||
-            window.oCancelRequestAnimationFrame ||
-            window.msCancelRequestAnimationFrame ||
-            function (id) {
-                clearTimeout(id);
-            };
-        return function (id) {
-            prefixed.apply(window, arguments);
-        };
-    })();
+//    var raf = (function(){
+//        var prefixed = window.requestAnimationFrame       ||
+//            window.webkitRequestAnimationFrame ||
+//            window.mozRequestAnimationFrame    ||
+//            window.oRequestAnimationFrame      ||
+//            window.msRequestAnimationFrame     ||
+//            function( callback ){
+//                window.setTimeout(callback, 1000 / 60);
+//            };
+//        return function(){
+//            var id = prefixed.apply(window, arguments);
+//            return id;
+//        }
+//    })();
+//
+//    var cancelRaf = (function() {
+//        var prefixed = window.cancelAnimationFrame ||
+//            window.webkitCancelRequestAnimationFrame ||
+//            window.mozCancelRequestAnimationFrame ||
+//            window.oCancelRequestAnimationFrame ||
+//            window.msCancelRequestAnimationFrame ||
+//            function (id) {
+//                clearTimeout(id);
+//            };
+//        return function (id) {
+//            prefixed.apply(window, arguments);
+//        };
+//    })();
     var transitionHandler = function(){
         sidebar.style.zIndex = 1;
         sideBarCover.removeEventListener(transitionEvt, transitionHandler);
@@ -89,23 +89,82 @@
         }
     });
 
+    function scrollTop(component, nextStep){
+        if(nextStep === undefined) {
+            return component.scrollY ? component.scrollY : component.scrollTop;
+        } else if(nextStep <= 0) {
+            component.scrollTo ? component.scrollTo(0, 0):component.scrollTop = 0;
+            return 0;
+        } else {
+            component.scrollTo ? component.scrollTo(0, nextStep) : component.scrollTop = nextStep;
+            return nextStep;
+        }
+    }
+
+    function scroll2Top(component, speed, style){
+        if(component === undefined) {
+            console.error('You must assign a dom node object or window object as the first param.');
+            return;
+        }
+        if(typeof speed !== 'number') {
+            if(typeof speed === 'string' && speed.match(/ease|steady/).length !== 0) {
+                style = speed
+            }
+            speed = 300;
+        }
+        if(style === undefined) {
+            style = 'steady';
+        }
+        var originY = scrollTop(component);
+        var currentY = originY;
+        var currentSpeed;
+        var operate = function(){
+            currentSpeed = speedConduct(speed, style, currentY, originY);
+            currentY -= currentSpeed;
+            if(scrollTop(component, currentY) !== 0) {
+                setTimeout(operate, 1000/60);
+            }
+        };
+        operate();
+    }
+
+    function speedConduct(originSpeed, style, cur, total){
+        var method;
+        var resultSpeed;
+        var pi = Math.PI;
+        switch (style) {
+            case 'ease-in':
+                method = Math.cos;
+                break;
+            case 'ease-out':
+                method = Math.sin;
+                break;
+            case 'steady':
+                return resultSpeed = originSpeed;
+            default :
+                method = Math.cos;
+        }
+        resultSpeed = originSpeed * method((pi/2)*(total-cur)/total);
+        return resultSpeed > 20? resultSpeed : 20;
+    }
 
     toTopBtn.addEventListener('click', function(e){
         e.preventDefault();
-        var rafId;
-        var speed = 110;
-        function toTop (){
-            var scrollY = sideBarCover.scrollTop;
-            rafId && cancelRaf(rafId);
-            scrollY -= speed;
-            if(scrollY <=0 ) {
-                sideBarCover.scrollTop = 0;
-                return;
-            }
-            sideBarCover.scrollTop = scrollY;
-            rafId = raf(toTop);
-        }
-        toTop();
+        scroll2Top(sideBarCover, 200, 'ease-in');
+//        var rafId;
+//        var speed = 110;
+//        function toTop (){
+//            var scrollY = sideBarCover.scrollTop;
+//            rafId && cancelRaf(rafId);
+//            scrollY -= speed;
+//            if(scrollY <=0 ) {
+//                sideBarCover.scrollTop = 0;
+//                return;
+//            }
+//            sideBarCover.scrollTop = scrollY;
+//            rafId = raf(toTop);
+//        }
+//        toTop();
     });
 
 })(document);
