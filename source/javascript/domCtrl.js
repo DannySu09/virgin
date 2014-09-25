@@ -107,7 +107,7 @@
         switch (style) {
             case 'ease-in':
                 method = Math.cos;
-                break;
+                break;  
             case 'ease-out':
                 method = Math.sin;
                 break;
