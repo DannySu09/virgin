@@ -21,7 +21,6 @@
   }
 }
 .archive-itemTitle {
-  font-weight: 500;
   color: $c-f-archiveTitle;
   & a {
     color: inherit;
@@ -30,7 +29,6 @@
 
 .archive-year {
   font-size: $fs-archiveYear;
-  font-weight: 500;
   color: $c-f-archiveTitle;
   padding-left: 10px;
   & > a {

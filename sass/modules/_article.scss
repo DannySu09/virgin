@@ -41,7 +41,6 @@
 .article-title {
   color: $c-f-articleTitle;
   font-size: $fs-articleTitle--main;
-  font-weight: normal;
   @include phone-and-pad {
     & {
       font-size: $fs-articleTitle--main-mobile;
