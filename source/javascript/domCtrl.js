@@ -9,7 +9,7 @@
     var scrollCtrl = doc.getElementsByClassName('js-scrollCtrl')[0];
     var toTopBtn = doc.getElementsByClassName('js-toTop')[0];
 //    inspire by https://github.com/EvandroLG/transitionEnd/blob/master/src/transition-end.js
-    var transitionEvt = (function(){
+    var transitionEvt = function(){
         var transitions = {
             'WebkitTransition' : 'webkitTransitionEnd',
             'MozTransition'    : 'transitionend',
@@ -22,7 +22,7 @@
                 return transitions[t];
             }
         }
-    })();
+    }();
 
     var transitionHandler = function(){
         sidebar.style.zIndex = 1;
