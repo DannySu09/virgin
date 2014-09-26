@@ -1,0 +1,30 @@
+@import "../_mixin/media";
+
+.header {
+  position: relative;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  text-align: center;
+  background-color: #ffffff;
+  color: #ffffff;
+  height: 100%;
+  background-image: url("http://sunaiwenblogimage.qiniudn.com/header-bg1.jpg");
+  background-size: 100% auto;
+  @include phone-and-pad {
+    height: 40%;
+  }
+  a {
+    color: inherit;
+  }
+}
+
+.header-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}

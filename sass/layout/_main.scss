@@ -5,6 +5,8 @@
   width: 100%;
   height: 100%;
   overflow: auto;
+  //  fix zIndex mess
+  position: relative;
   -webkit-transition: all .4s;
   -moz-transition: all .4s;
   -ms-transition: all .4s;
@@ -15,8 +17,6 @@
 .l-main-content {
   min-height: 100%;
   background-color: #ffffff;
-  //  fix zIndex mess
-  position: relative;
 }
 
 .l-main.is-showSideBar {
