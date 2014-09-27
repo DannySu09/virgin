@@ -14,11 +14,11 @@
   border: 1px solid transparent;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -webkit-transition: border-color .1s;
-  -moz-transition: border-color .1s;
-  -ms-transition: border-color .1s;
-  -o-transition: border-color .1s;
-  transition: border-color .1s;
+  -webkit-transition: border-color .3s;
+  -moz-transition: border-color .3s;
+  -ms-transition: border-color .3s;
+  -o-transition: border-color .3s;
+  transition: border-color .3s;
   &:hover {
     border: 1px solid $c-pagination-border;
     color: $c-f-pagination--hover !important;

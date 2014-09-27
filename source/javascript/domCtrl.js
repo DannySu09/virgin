@@ -122,7 +122,7 @@
 
     toTopBtn.addEventListener('click', function(e){
         e.preventDefault();
-        scroll2Top(sideBarCover, 200, 'ease-in');
+        scroll2Top(sideBarCover, 400, 'ease-in');
     });
 
 })(document);

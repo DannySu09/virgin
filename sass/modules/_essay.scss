@@ -17,7 +17,7 @@ $fs-essayTitle--main: $fs-articleTitle--main;
 }
 
 .essay {
-  @for $i from 2 through 6 {
+  @for $i from 1 through 6 {
     & #{h}#{$i} {
       font-size: $fs-essayTitle--main * 0.1 * ( 10 - $i );
       margin-top: 50px;

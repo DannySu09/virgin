@@ -11,11 +11,11 @@
   padding: 10px;
   margin-top: 20px;
   border: 1px solid transparent;
-  -webkit-transition: all .1s;
-  -moz-transition: all .1s;
-  -ms-transition: all .1s;
-  -o-transition: all .1s;
-  transition: all .1s;
+  -webkit-transition: border-color .3s;
+  -moz-transition: border-color .3s;
+  -ms-transition: border-color .3s;
+  -o-transition: border-color .3s;
+  transition: border-color .3s;
   &:hover {
     border-color: $c-f-archiveBorderLeft;
   }
