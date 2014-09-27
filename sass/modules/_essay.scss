@@ -20,11 +20,11 @@ $fs-essayTitle--main: $fs-articleTitle--main;
   @for $i from 1 through 6 {
     & #{h}#{$i} {
       font-size: $fs-essayTitle--main * 0.1 * ( 10 - $i );
-      margin-top: 50px;
+      margin-top: 60px;
     }
   }
   p {
-    margin-top: 30px;
+    margin-top: 40px;
   }
   *:not(pre) {
     & > code {
