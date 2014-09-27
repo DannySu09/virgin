@@ -4,6 +4,7 @@
 // content layout
 .l-looseContent {
   width: $w-articleWidth--768px;
+  max-width: $w-articleMaxWidth--768px;
   margin-left: auto;
   margin-right: auto;
   @media (min-width: 320px) and (max-width: 768px) {
