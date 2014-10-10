@@ -8,22 +8,8 @@
 
     var scrollCtrl = doc.getElementsByClassName('js-scrollCtrl')[0];
     var toTopBtn = doc.getElementsByClassName('js-toTop')[0];
-//    inspire by https://github.com/EvandroLG/transitionEnd/blob/master/src/transition-end.js
-    var transitionEvt = function(){
-        var transitions = {
-            'WebkitTransition' : 'webkitTransitionEnd',
-            'MozTransition'    : 'transitionend',
-            'OTransition'      : 'oTransitionEnd otransitionend',
-            'transition'       : 'transitionend'
-        };
-
-        for(var t in transitions){
-            if(sideBarCover.style[t] !== undefined){
-                return transitions[t];
-            }
-        }
-    }();
-
+    var transitionEvt = require('./modules/transitionend.js')(sideBarCover);
+    var scroll2Top = require('./modules/scroll2Top.js');
     var transitionHandler = function(){
         sidebar.style.zIndex = 1;
         sideBarCover.removeEventListener(transitionEvt, transitionHandler);
@@ -47,7 +33,7 @@
     sideBarCover.addEventListener('scroll', function(){
         var bodyHeight = mainContent.clientHeight;
         if(sideBarCover.scrollTop >= bodyHeight*2/7) {
-            if(scrollCtrl.className.indexOf(' is-show') > -1){
+            if(scrollCtrl.className.indexOf(' is-show') > -1) {
                 return;
             }
             scrollCtrl.className += ' is-show';
@@ -61,68 +47,9 @@
         }
     });
 
-    function scrollTop(component, nextStep){
-        if(nextStep === undefined) {
-            return component.scrollY ? component.scrollY : component.scrollTop;
-        } else if(nextStep <= 0) {
-            component.scrollTo ? component.scrollTo(0, 0):component.scrollTop = 0;
-            return 0;
-        } else {
-            component.scrollTo ? component.scrollTo(0, nextStep) : component.scrollTop = nextStep;
-            return nextStep;
-        }
-    }
-
-    function scroll2Top(component, speed, style){
-        if(component === undefined) {
-            console.error('You must assign a dom node object or window object as the first param.');
-            return;
-        }
-        if(typeof speed !== 'number') {
-            if(typeof speed === 'string' && speed.match(/ease|steady/).length !== 0) {
-                style = speed
-            }
-            speed = 300;
-        }
-        if(style === undefined) {
-            style = 'steady';
-        }
-        var originY = scrollTop(component);
-        var currentY = originY;
-        var currentSpeed;
-        var operate = function(){
-            currentSpeed = speedConduct(speed, style, currentY, originY);
-            currentY -= currentSpeed;
-            if(scrollTop(component, currentY) !== 0) {
-                setTimeout(operate, 1000/60);
-            }
-        };
-        operate();
-    }
-
-    function speedConduct(originSpeed, style, cur, total){
-        var method;
-        var resultSpeed;
-        var pi = Math.PI;
-        switch (style) {
-            case 'ease-in':
-                method = Math.cos;
-                break;
-            case 'ease-out':
-                method = Math.sin;
-                break;
-            case 'steady':
-                return resultSpeed = originSpeed;
-            default :
-                method = Math.cos;
-        }
-        resultSpeed = originSpeed * method((pi/2)*(total-cur)/total);
-        return resultSpeed > 20? resultSpeed : 20;
-    }
-
     toTopBtn.addEventListener('click', function(e){
         e.preventDefault();
-        scroll2Top(sideBarCover, 400, 'ease-in');
+        scroll2Top(sideBarCover, 900);
     });
 
 })(document);
