@@ -1,4 +1,5 @@
 ;(function(){
+//    get the prefix or non-prefix raf
     var animate = (function(){
         var action = window.requestAnimationFrame ||
             window.webkitRequestAnimationFrame ||
@@ -13,9 +14,10 @@
         };
     })();
 
+//    get or set the scrollTop value
     var scrollTop = function(component, nextStep){
-        if(nextStep === undefined) {
-            return component.scrollY ? component.scrollY : component.scrollTop;
+        if(nextStep == null) {
+            return component.scrollY != null ? component.scrollY : component.scrollTop;
         } else if(nextStep <= 0) {
             component.scrollTo ? component.scrollTo(0, 0):component.scrollTop = 0;
             return 0;
@@ -25,10 +27,15 @@
         }
     };
 
+//    set speed
     var speedConduct = function(originSpeed, time, cur, total){
+        if(total === 0) {
+            return 0;
+        }
         var method = Math.sin;
         var PI = Math.PI;
-        return originSpeed * method(PI * (total-cur)/total) + 1;
+        var INIT_SPEED = 2;
+        return originSpeed * method(PI * (total-cur)/total) + INIT_SPEED;
     };
 
     var scroll2Top = function(component, time){
@@ -40,7 +47,6 @@
         if(time == null) {
             time = DEFAULT_TIME;
         }
-        console.log(time);
         var originY = scrollTop(component);
         var currentY = originY;
         var originSpeed = originY / (time / 60);

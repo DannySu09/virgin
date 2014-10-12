@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/sunaiwen/ffun/octopress/.themes/virgin/source/javascript/domCtrl.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 ;(function(doc){
     var body = doc.getElementsByTagName('body')[0];
     var sideBarCover = doc.getElementsByClassName('js-sideBarCover')[0];
@@ -54,8 +54,9 @@
     });
 
 })(document);
-},{"./modules/scroll2Top.js":"/Users/sunaiwen/ffun/octopress/.themes/virgin/source/javascript/modules/scroll2Top.js","./modules/transitionend.js":"/Users/sunaiwen/ffun/octopress/.themes/virgin/source/javascript/modules/transitionend.js"}],"/Users/sunaiwen/ffun/octopress/.themes/virgin/source/javascript/modules/scroll2Top.js":[function(require,module,exports){
+},{"./modules/scroll2Top.js":2,"./modules/transitionend.js":3}],2:[function(require,module,exports){
 ;(function(){
+//    get the prefix or non-prefix raf
     var animate = (function(){
         var action = window.requestAnimationFrame ||
             window.webkitRequestAnimationFrame ||
@@ -70,9 +71,10 @@
         };
     })();
 
+//    get or set the scrollTop value
     var scrollTop = function(component, nextStep){
-        if(nextStep === undefined) {
-            return component.scrollY ? component.scrollY : component.scrollTop;
+        if(nextStep == null) {
+            return component.scrollY != null ? component.scrollY : component.scrollTop;
         } else if(nextStep <= 0) {
             component.scrollTo ? component.scrollTo(0, 0):component.scrollTop = 0;
             return 0;
@@ -82,10 +84,15 @@
         }
     };
 
+//    set speed
     var speedConduct = function(originSpeed, time, cur, total){
+        if(total === 0) {
+            return 0;
+        }
         var method = Math.sin;
         var PI = Math.PI;
-        return originSpeed * method(PI * (total-cur)/total) + 1;
+        var INIT_SPEED = 2;
+        return originSpeed * method(PI * (total-cur)/total) + INIT_SPEED;
     };
 
     var scroll2Top = function(component, time){
@@ -97,7 +104,6 @@
         if(time == null) {
             time = DEFAULT_TIME;
         }
-        console.log(time);
         var originY = scrollTop(component);
         var currentY = originY;
         var originSpeed = originY / (time / 60);
@@ -113,7 +119,7 @@
 
     module.exports = scroll2Top;
 })();
-},{}],"/Users/sunaiwen/ffun/octopress/.themes/virgin/source/javascript/modules/transitionend.js":[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 module.exports = function(testEle){
     var transitions = {
         'WebkitTransition' : 'webkitTransitionEnd',
@@ -128,4 +134,4 @@ module.exports = function(testEle){
         }
     }
 };
-},{}]},{},["/Users/sunaiwen/ffun/octopress/.themes/virgin/source/javascript/domCtrl.js"]);
+},{}]},{},[1]);
