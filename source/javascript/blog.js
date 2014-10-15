@@ -50,7 +50,7 @@
 
     toTopBtn.addEventListener('click', function(e){
         e.preventDefault();
-        scroll2Top(sideBarCover, 900);
+        scroll2Top(sideBarCover, 1500);
     });
 
 })(document);
