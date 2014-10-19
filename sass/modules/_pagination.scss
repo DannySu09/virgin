@@ -69,3 +69,21 @@
     right: $fs-pagination-arrow--mobile;
   }
 }
+
+// the pagination in index.html
+
+.homePagination-item {
+  display: block;
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: inherit;
+  border: 2px solid $c-border-homePagination;
+  border-radius: 20px;
+  &:visited {
+    color: inherit;
+  }
+}

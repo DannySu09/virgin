@@ -12,10 +12,13 @@ layout: default
         </article>
         {% endfor %}
     </div>
-    <div class="pagination">
-      <!--{% if paginator.next_page %}-->
-        <!--<a class="prev" href="{{paginator.next_page_path}}">&larr; Older</a>-->
-      <!--{% endif %}-->
+    <div class="homgPagination">
+        {% if paginator.next_page %}
+        <a class="l-homePagination homePagination-item u-centerBlock" href="{{paginator.next_page_path}}">Older&nbsp;<i class="fa fa-long-arrow-right"></i></a>
+        {% endif %}
+        {% if paginator.previous_page %}
+        <a class="l-homePagination homePagination-item u-centerBlock" href="{{paginator.previous_page_path}}"><i class="fa fa-long-arrow-left"></i>&nbsp;Newer</a>
+        {% endif %}
     </div>
     <div class="l-scrollCtrlBar scrollCtrlBar js-scrollCtrl">
         <a class="scrollCtrlBar-item js-toTop"><i class="fa fa-chevron-up"></i></i></a>
