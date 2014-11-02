@@ -52,4 +52,10 @@
         scroll2Top(sideBarCover, 900);
     });
 
+//  init shareKit
+    if(document.getElementsByClassName('js-shareKitWrap').length > 0) {
+        require('./modules/shareKit.js')({
+          twitterName: 'sunaiwen'
+        });
+    }
 })(document);
