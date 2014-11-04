@@ -96,11 +96,17 @@
         var conf = shareKit.baseConf;
         var wechatTool;
         var wechatShare;
+        var ele;
         if(e != null) {
             e.preventDefault();
+            ele = document.getElementsByClassName('js-shareKit-wechat-QRCode')[0];
+            ele.style.display = 'block';
             if(wechat.hasCodeGenerated!==true) {
                 wechat.hasCodeGenerated = true;
-                QRCodeGenerate(conf.link);
+                    QRCodeGenerate(conf.link, ele);
+                    ele.onclick = function(){
+                        ele.style.display = 'none';
+                    };
             }
         } else {
             wechatTool = wechatCtl();
@@ -177,7 +183,7 @@
     };
 
 //    QRCode generator via https://github.com/davidshimjs/qrcodejs
-    function QRCodeGenerate(url) {
+    function QRCodeGenerate(url, elem) {
         /**
          * @fileoverview
          * - Using the 'QRCode for Javascript library'
@@ -788,9 +794,8 @@
             QRCode.CorrectLevel = QRErrorCorrectLevel;
         })();
 
-        var ele = document.getElementsByClassName('js-shareKit-wechat-QRCode')[0];
-        ele.style.display = 'block';
-        var qrcode = new QRCode(ele, {
+
+        var qrcode = new QRCode(elem, {
             text: url,
             width: 200,
             height: 200,
@@ -798,9 +803,6 @@
             colorLight: '#ffffff',
             correctLevel : QRCode.CorrectLevel.H
         });
-        ele.onclick = function(){
-            ele.style.display = 'none';
-        };
     }
 
 //    wechat sharing control via https://github.com/sofish/wechat.js
