@@ -33,7 +33,7 @@
 .pagination-prev {
   float: left;
   @include phone-and-pad {
-    padding-left: 25px + $fs-pagination-arrow--mobile*1.5;
+    padding-left: $fs-pagination-arrow--mobile*1.5;
     padding-right: 10px;
   }
 }
@@ -41,7 +41,7 @@
   float: right;
   @include phone-and-pad {
     padding-left: 10px;
-    padding-right: 25px + $fs-pagination-arrow--mobile*1.5;
+    padding-right: $fs-pagination-arrow--mobile*1.5;
   }
 }
 

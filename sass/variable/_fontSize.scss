@@ -1,16 +1,17 @@
+$fs-global: 18px;
+
 // fs = font-size
-$fs-hugest: 40px;
-$fs-huger: 35px;
-$fs-huge: 30px;
-$fs-larger: 26px;
-$fs-large: 22px;
-$fs-middle: 18px;
-$fs-small: 16px;
-$fs-smaller: 12px;
+$fs-hugest: 2.2rem;
+$fs-huger: 1.9rem;
+$fs-huge: 1.6rem;
+$fs-larger: 1.3rem;
+$fs-large: 1.2rem;
+$fs-middle: 1rem;
+$fs-small: 0.8rem;
+$fs-smaller: 0.7rem;
 
 // =============== global content =================
 $fs-globalTitle: $fs-hugest;
-$fs-global: $fs-small;
 
 // ================ module article ==================
 $fs-articleTitle--main: $fs-huger;
