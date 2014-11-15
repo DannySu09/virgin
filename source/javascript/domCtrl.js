@@ -53,9 +53,26 @@
     });
 
 //  init shareKit
+    var SK;
+    var sk;
+    var wxBtn;
+    var wxQRCode;
     if(document.getElementsByClassName('js-shareKitWrap').length > 0) {
-        require('./modules/shareKit.js')({
-          twitterName: 'sunaiwen'
+        SK = require('./modules/shareKit.js');
+        sk = new SK({
+            twitterName: 'sunaiwen'
         });
+        console.log(sk.device);
+        if(sk.device === 'pc') {
+            wxBtn = doc.getElementsByClassName('js-blog-wxBtn')[0];
+            wxQRCode = doc.getElementsByClassName('js-blog-wxQRCode')[0];
+            wxBtn.addEventListener('click', function(){
+                wxQRCode.style.display = 'block';
+            });
+            wxQRCode.addEventListener('click', function(){
+                wxQRCode.style.display = 'none';
+            });
+
+        }
     }
 })(document);

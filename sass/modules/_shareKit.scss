@@ -40,23 +40,24 @@ $share-item-height: 35px;
 }
 
 // QRCode
-$QRCode-width: 200px;
+$QRCode-width: 210px;
 $QRCode-height: $QRCode-width;
 .shareKit-wechat-QRCode {
   position: absolute;
   display: none;
   width: $QRCode-width;
   height: $QRCode-height;
-  top: -$QRCode-height;
+  top: -$QRCode-height*1.1;
   left: 50%;
   margin-left: -$QRCode-width / 2;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 3px;
   -webkit-box-shadow: 0 0 7px 2px rgba(0,0,0,0.3);
-  box-shadow: 0 0 7px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 0 13px 2px rgba(0,0,0,0.3);
   background-color: #ffffff;
-  & > img {
+  & > canvas {
+    display: block;
     width: 100%;
   }
 }
