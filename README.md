@@ -12,7 +12,7 @@ Then, at any location under octopress directory, run:
 
 ```rake generate```
 
-Now, your blog theme has finished installation. If you ready to deploy, just run:
+Now, your blog theme has finished installation. If you are ready to deploy, just run:
 
 ```rake deploy```
 
