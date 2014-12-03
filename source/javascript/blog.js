@@ -146,7 +146,7 @@ var QRCode = require('qrcode');
 var doc = window.document;
 var SK = function(options){
     this.baseConf = this.setOptions(options);
-    this.isFromPC = this.detectFrom(location.href);
+    //this.isFromPC = this.detectFrom(location.href);
     this.initEle(this.baseConf.prefix);
     this.wechatFunc(this);
 };
@@ -178,17 +178,6 @@ SK.prototype.bind = function(element, handler){
         e.preventDefault();
         handler(self);
     };
-    //this.wrapEle.onclick = function(e){
-    //    // todo: 如果 js-shareKit-qzone (twitter) 元素下面还有子元素，而事件是从这些子元素上冒泡上来的，如果只是有一层子元素，那还好判断，如果有多层呢？怎么判断事件在其元素范围内触发了呢？
-    //    var className = e.target.className;
-    //    var parentClassName = e.target.parentNode.className;
-    //    e.preventDefault();
-    //    if(className.indexOf('qzone') > -1 || parentClassName.indexOf('qzone')) {
-    //        self.qzoneFunc(self);
-    //    } else if(className.indexOf('twitter') > -1 || parentClassName.indexOf('twitter')) {
-    //        self.twitterFunc(self);
-    //    }
-    //}
 };
 
 SK.prototype.openWin = function(options){
@@ -268,9 +257,11 @@ SK.prototype.weiboFunc = function(self){
             language:'zh_cn',
             button_type:'red',
             button_size:'middle',
-            appkey:'3125265748',
             id: 'wb_publish',
-            uid: '1624118717',
+            appkey: conf.wbOption.appkey || '',
+            uid: conf.wbOption.appkey || '',
+            //appkey:'3125265748',
+            //uid: '1624118717',
             default_text: defaultText
         });
     });
@@ -305,57 +296,55 @@ SK.prototype.twitterFunc = function(self){
 //    wechat share Handler
 SK.prototype.wechatFunc = function(self){
     var conf = self.baseConf;
-    var shareReady;
-    var wxObj;
-    var qrcodeEle;
-    var qStr;
-    if(self.isFromPC === true) {
+    var wxObj = null;
+    var qrcodeEle = null;
+
+    if(typeof self.wxEle.qrcode === 'undefined') {
+        self.wxEle.qrcode = qrcodeEle = doc.getElementsByClassName('js-'+self.baseConf.prefix+'-wechat-QRCode')[0];
+        qrcodeEle.style.display = 'none';
+        new QRCode(qrcodeEle, {
+            text: conf.link,
+            width: 204,
+            height: 204,
+            colorDark: '#000000',
+            colorLight: '#ffffff'
+        });
+
+        qrcodeEle.onclick = function(){
+            this.style.display = 'none';
+        };
+        self.wxEle.onclick = null;
+        self.wxEle.onclick = function(){
+            if(qrcodeEle.style.display === 'none') {
+                qrcodeEle.style.display = 'block';
+            }
+        };
+    }
+
+    var shareReady =function(){
         wxObj = {};
         wxObj.title = conf.title;
         wxObj.link = conf.link;
         wxObj.desc = conf.desc;
         wxObj.img_url = conf.portrait;
-        shareReady = function(){
-            WeixinJSBridge.on('menu:share:appmessage', function(){
-                WeixinJSBridge.invoke('sendAppMessage', wxObj,function(){})
-            });
-            WeixinJSBridge.on('menu:share:timeline', function(){
-                WeixinJSBridge.invoke('shareTimeline', wxObj, function(){});
-            });
-        };
-        if(typeof WeixinJSBridge === 'undefined') {
-            doc.addEventListener('WeixinJSBridgeReady', shareReady);
-        } else {
-            shareReady();
-        }
-    } else if(self.isFromPC === false) {
-        qStr = location.href;
-        if(qStr.indexOf('?') > -1) {
-            qStr += '&frompc=true';
-        } else {
-            qStr += '?frompc=true';
-        }
-        if(self.wxEle.qrcode == null) {
-            self.wxEle.qrcode = qrcodeEle = doc.getElementsByClassName('js-'+self.baseConf.prefix+'-wechat-QRCode')[0];
-            qrcodeEle.style.display = 'none';
-            self.wxEle.qrcode = new QRCode(qrcodeEle, {
-                text: qStr,
-                width: 204,
-                height: 204,
-                colorDark: '#000000',
-                colorLight: '#ffffff'
-            });
 
-            qrcodeEle.onclick = function(){
-                this.style.display = 'none';
-            };
-            self.wxEle.onclick = null;
-            self.wxEle.addEventListener('click', function(){
-                if(qrcodeEle.style.display === 'none') {
-                    qrcodeEle.style.display = 'block';
-                }
-            });
-        }
+        WeixinJSBridge.on('menu:share:appmessage', function(){
+            WeixinJSBridge.invoke('sendAppMessage', wxObj,function(){});
+        });
+        WeixinJSBridge.on('menu:share:timeline', function(){
+            WeixinJSBridge.invoke('shareTimeline', wxObj, function(){});
+        });
+        self.wxEle.onclick = function(){
+            alert('点击右上角「分享按钮」分享给你的朋友们吧！');
+        };
+
+        qrcodeEle.parentNode.removeChild(qrcodeEle);
+    };
+
+    if(typeof WeixinJSBridge === 'undefined') {
+        doc.addEventListener('WeixinJSBridgeReady', shareReady);
+    } else {
+        shareReady();
     }
 };
 
@@ -389,9 +378,20 @@ SK.prototype.setOptions = function (options) {
         baseConf.prefix = options.prefix;
     }
     if(typeof options.portrait === 'undefined') {
-        options.portrait = 'http://usualimages.qiniudn.com/1.jpeg';
+        baseConf.portrait = 'http://usualimages.qiniudn.com/1.jpeg';
     } else {
         baseConf.portrait = options.portrait;
+    }
+    if(typeof options.wbOption === 'object') {
+        baseConf.wbOption = {
+            uid: options.wbOption.uid,
+            appkey: options.wbOption.appkey
+        }
+    } else {
+        baseConf.wbOption = {
+            uid: '',
+            appkey: ''
+        }
     }
     return baseConf;
 };
@@ -403,25 +403,6 @@ SK.prototype.getOption = function(){
         re[key] = this.baseConf[key];
     }
     return re;
-};
-
-// detect device type
-SK.prototype.detectFrom = function(url){
-    var anchor = doc.createElement('a');
-    anchor.href = url;
-    var qStr = anchor.search.slice(1);
-    var qArr = null;
-    if(qStr.indexOf('frompc') > -1) {
-        qArr = qStr.split('&');
-        for(var i = 0, len = qArr.length; i < len; i++){
-            if(qArr[i].indexOf('frompc') > -1) {
-                return qArr[i].split('=')[1] === 'true';
-            }
-        }
-    } else {
-        return false;
-    }
-
 };
 
 SK.prototype.findDesc = function(){
@@ -444,7 +425,7 @@ SK.prototype.urlConcat = function(o, url){
     return url + '?' + s.join('&');
 };
 
-//    for test
+// exports
 module.exports = SK;
 },{"qrcode":4}],4:[function(require,module,exports){
 (function (global){
