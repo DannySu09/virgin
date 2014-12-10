@@ -11,6 +11,12 @@
   {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
   <meta name="description" content="{{ description | strip_html | condense_spaces | truncate:150 }}">
   {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
+  <!-- for searching engine -->
+  <meta name="robots" content="index,follow"/>
+  <meta name="google" content="index,follow"/>
+
+  <!-- for baidu decode -->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
