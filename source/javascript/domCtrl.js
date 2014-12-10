@@ -62,16 +62,5 @@
         new SK({
             twitterName: 'sunaiwen'
         });
-        //if(sk.device === 'pc') {
-        //    wxBtn = doc.getElementsByClassName('js-blog-wxBtn')[0];
-        //    wxQRCode = doc.getElementsByClassName('js-blog-wxQRCode')[0];
-        //    wxBtn.addEventListener('click', function(){
-        //        wxQRCode.style.display = 'block';
-        //    });
-        //    wxQRCode.addEventListener('click', function(){
-        //        wxQRCode.style.display = 'none';
-        //    });
-        //
-        //}
     }
 })(document);
