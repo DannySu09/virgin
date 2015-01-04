@@ -8,24 +8,24 @@ $fs-essayTitle--main: $fs-articleTitle--main;
 
 .essay {
   margin-top: 35px;
-  font-size: $fs-essayContent;
-  line-height: $lh-essayContent;
-  @include phone-and-pad {
-    font-size: $fs-essayContent--mobile;
-    line-height: $lh-essayContent--mobile;
-  }
+  // font-size: $fs-essayContent;
+  // line-height: $lh-essayContent;
+  // @include phone-and-pad {
+  //   font-size: $fs-essayContent--mobile;
+  //   line-height: $lh-essayContent--mobile;
+  // }
 }
 
 .essay {
-  @for $i from 1 through 6 {
-    & #{h}#{$i} {
-      font-size: 1em + 0.1 * ( 6 - $i );
-      margin-top: 60px;
-      & + p {
-        margin-top: 15px;
-      }
-    }
-  }
+  // @for $i from 1 through 6 {
+  //   & #{h}#{$i} {
+  //     font-size: 1em + 0.1 * ( 6 - $i );
+  //     margin-top: 60px;
+  //     & + p {
+  //       margin-top: 15px;
+  //     }
+  //   }
+  // }
   p {
     margin-top: 40px;
   }
@@ -36,15 +36,15 @@ $fs-essayTitle--main: $fs-articleTitle--main;
       margin-right: 7px;
       border-radius: 4px;
       border: 1px solid $c-border-essayCode;
-      color: $c-b-essayCode;
-      font-size: $fs-essayCode;
+      // color: $c-b-essayCode;
+      // font-size: $fs-essayCode;
       padding: 2px;
     }
   }
   pre {
     max-width: 100%;
     overflow: auto;
-    font-size: $fs-essayPre;
+    // font-size: $fs-essayPre;
     background-color: #ffffff;
     border: 1px solid $c-border-essayPre;
   }
@@ -67,7 +67,7 @@ $fs-essayTitle--main: $fs-articleTitle--main;
     margin: 40px 40px 40px 0;
     padding: 4px 0 4px 10px;
     border-left: 4px solid $c-border-essayBlockquote;
-    font-size: $fs-essayBlockQuote;
+    // font-size: $fs-essayBlockQuote;
     line-height: $lh-essayBlockquote;
     color: $c-f-blockQuote;
   }
